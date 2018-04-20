@@ -1,19 +1,31 @@
 import React, { Component } from 'react'
 import SearchView from '../views/SearchView.js'
 
+const WAIT_TIME = 1000;
+
 class SearchContainer extends Component {
 	constructor(props) {
-	  super(props);
+		super(props);
 
-	  this.onChange = this.onChange.bind(this);
+		this.state = { value: this.props.defaultQuery }
+
+		this.typingTimeout = null;
 	}
 
 	onChange(e) {
-		this.props.onInput(e.target.value);
+		clearTimeout(this.typingTimeout);
+
+		this.setState({ value: e.target.value });
+
+		this.typingTimeout = setTimeout(this.triggerChange.bind(this), WAIT_TIME);
+	}
+
+	triggerChange() {
+		this.props.onInputComplete(this.state.value);
 	}
 
 	render() {
-		return <SearchView onChange={ this.onChange } defaultQuery={ this.props.defaultQuery } />
+		return <SearchView onChange={ this.onChange.bind(this) } value={ this.state.value }/> 
 	}
 }
 
