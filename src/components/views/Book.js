@@ -21,7 +21,7 @@ const BookInfo = ({ title, author, price }) => (
 const Book = ({ title, author, price, image, hasSample }) => (
     <li className="Book">
         <BookCover image={ image } hasSample={ hasSample } alt={ title } />
-        <BookInfo title={ title } author={ author } price={ price } />
+        <BookInfo title={ title } author={ author } price={ price }  />
     </li>
 )
 
