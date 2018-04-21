@@ -1,34 +1,28 @@
 import React from 'react'
+import '../../styles/Book.css'
 
-const BookImg = ({ imageSource, hasSample }) => (
-    <div>
-        <img src={ imageSource } width="150px" height="250px"/>
+const BookCover = ({ image, alt, hasSample }) => (
+    <div className="Book__cover">
+        <img className="Book__image" src={ image } alt={alt}/>
         { hasSample 
-            ? <span>Sample</span>
+            ? <span className="Book__sample-text">Sample</span>
             : null }
     </div>
 )
 
-const BookDesc = ({ title, saleInfo }) => (
-    <div>
-        <div>{ title }</div>
-        <div>
-            { saleInfo.saleability == "FOR_SALE" 
-                    ? `${saleInfo.retailPrice.currencyCode} ${saleInfo.retailPrice.amount}`
-                    : null }
-        </div>
+const BookInfo = ({ title, author, price }) => (
+    <div className="Book__info">
+        <div className="Book__title">{ title }</div>
+        <div className="Book__author">{ author }</div>
+        <div className="Book__price">{ price }</div>
     </div>
 )
 
-const Book = ({ details }) => (
-    <div>
-        <BookImg
-            imageSource={ details.volumeInfo.imageLinks.thumbnail }
-            hasSample={ details.accessInfo.accessViewStatus == "SAMPLE" } />
-        <BookDesc
-            title={ details.volumeInfo.title }
-            saleInfo={ details.saleInfo } />
-    </div>
+const Book = ({ title, author, price, image, hasSample }) => (
+    <li className="Book">
+        <BookCover image={ image } hasSample={ hasSample } alt={ title } />
+        <BookInfo title={ title } author={ author } price={ price } />
+    </li>
 )
 
 export default Book;

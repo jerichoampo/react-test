@@ -1,10 +1,11 @@
 import React from 'react'
-import Book from './Book.js'
-
+import BookContainer from '../containers/BookContainer.js'
+import '../../styles/Grid.css'
 
 const Grid = ({books}) => (
-    <ul>
-        { books.map(book => <Book details={ book }/>)}
+    <ul className="Grid">
+        { books.map((book, i) => 
+            <BookContainer key={i} details={ book }/>)}
     </ul>
 )
 

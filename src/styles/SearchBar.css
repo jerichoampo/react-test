@@ -1,0 +1,113 @@
+.SearchBar {
+    position: relative;
+    width: 75%;
+    margin: 40px auto;
+}
+
+.SearchBar__input {
+    display: block;
+    width: 100%;
+
+    -webkit-appearance:     none;
+    -moz-appearance:        none;
+    appearance:             none;
+
+    padding: 10px 60px 10px 10px;
+    border: 1px solid #ced6e0;
+    box-sizing: border-box;
+}
+
+.SearchBar__spinner {
+    position: absolute;
+    width: 40px;
+    height: 100%;
+
+    top: 0;
+    right: 0;
+} 
+
+
+/* Spinner */
+
+.Sb-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    -webkit-transform:  translate(-50%, -50%);
+    -moz-transform:     translate(-50%, -50%);
+    transform:          translate(-50%, -50%);
+}
+
+.Sb-spinner__circle {
+    position: absolute;
+
+    background-color: #dfe4ea;
+
+    border-radius: 50%;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    
+    animation-name: rotate;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+
+.Sb-spinner__circle--large { 
+    width: 12px; 
+    height: 12px;
+
+    -webkit-transform-origin:   -4px 50%;
+    -moz-transform-origin:      -4px 50%;
+    transform-origin:           -4px 50%;
+}
+
+.Sb-spinner__circle--medium { 
+    width: 9px; 
+    height: 9px; 
+
+    -webkit-transform-origin:   -6px 50%;
+    -moz-transform-origin:      -6px 50%;
+    transform-origin:           -6px 50%;
+
+    -webkit-animation-delay:    100ms;
+    -moz-animation-delay:       100ms;
+    animation-delay:            100ms;
+}
+
+.Sb-spinner__circle--small { 
+    width: 6px; 
+    height: 6px; 
+
+    -webkit-transform-origin:   -10px 50%;
+    -moz-transform-origin:      -10px 50%;
+    transform-origin:           -10px 50%;
+
+    -webkit-animation-delay:    200ms;
+    -moz-animation-delay:       200ms;
+    animation-delay:            200ms;
+    
+}
+
+@-webkit-keyframes rotate {
+    0% { -webkit-transform: rotate(0deg) }
+    100% { -webkit-transform: rotate(360deg) }
+}
+
+@-moz-keyframes rotate {
+    0% { -moz-transform: rotate(0deg) }
+    100% { -moz-transform: rotate(360deg) }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg) }
+    100% { transform: rotate(360deg) }
+}
